@@ -17,7 +17,8 @@ public class BasicStringUtils {
      * @return string with identical contents, in the reverse order
      */
     public static String reverse(String str) {
-        return null;
+        StringBuilder reverse = new StringBuilder(str);
+        return reverse.reverse().toString();
     }
 
     /**
