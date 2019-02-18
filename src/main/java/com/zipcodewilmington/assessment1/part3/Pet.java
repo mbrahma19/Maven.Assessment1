@@ -6,9 +6,9 @@ package com.zipcodewilmington.assessment1.part3;
 public abstract class Pet implements Animal {
 
 
-    public String name;
-    public Integer age;
-    public PetOwner owner;
+    private String name;
+    private Integer age;
+    private PetOwner owner;
 
     /**
      * nullary constructor

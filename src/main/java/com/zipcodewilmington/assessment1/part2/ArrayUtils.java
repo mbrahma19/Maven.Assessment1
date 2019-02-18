@@ -1,8 +1,8 @@
 package com.zipcodewilmington.assessment1.part2;
 
-import java.net.Inet4Address;
+import com.zipcodewilmington.assessment1.part3.Pet;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by leon on 2/16/18.
@@ -16,8 +16,8 @@ public class ArrayUtils {
      */
     public static Integer getNumberOfOccurrences(Object[] objectArray, Object objectToCount) {
         Integer count = 0;
-        for(Object o : objectArray){
-            if(o.equals(objectToCount)){
+        for (Object o : objectArray) {
+            if (o.equals(objectToCount)) {
                 count++;
             }
         }
@@ -31,6 +31,7 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Integer[] removeValue(Integer[] objectArray, Integer objectToRemove) {
+
         int numReduce = getNumberOfOccurrences(objectArray,objectToRemove);
         Integer[] resultArray = new Integer[(objectArray.length-numReduce)];
         int i = 0;
@@ -41,6 +42,23 @@ public class ArrayUtils {
             }
         }
         return resultArray;
+
+    }
+
+    public static Pet[] removeValueObject(Pet[] objectArray, Pet objectToRemove) {
+
+        ArrayList<Pet> returnList = new ArrayList<>();
+        for (Pet o : objectArray) {
+            if(!o.equals(objectToRemove)){
+                returnList.add(o);
+            }
+
+        }
+        if(returnList.size()==0){
+            return new Pet[]{null};
+        }else {
+            return returnList.toArray(new Pet[returnList.size()]);
+        }
     }
 
     /**
@@ -51,10 +69,10 @@ public class ArrayUtils {
     public static Object getMostCommon(Object[] objectArray) {
         Object result = objectArray[0];
 
-        for(Object o : objectArray){
-            Integer numOccurO = getNumberOfOccurrences(objectArray,o);
-            Integer numOccurResult = getNumberOfOccurrences(objectArray,result);
-            if(numOccurO > numOccurResult){
+        for (Object o : objectArray) {
+            Integer numOccurO = getNumberOfOccurrences(objectArray, o);
+            Integer numOccurResult = getNumberOfOccurrences(objectArray, result);
+            if (numOccurO > numOccurResult) {
                 result = o;
             }
         }
@@ -70,10 +88,10 @@ public class ArrayUtils {
     public static Object getLeastCommon(Object[] objectArray) {
         Object leastCommmomResult = objectArray[0];
 
-        for(Object o : objectArray){
-            Integer numOccurO = getNumberOfOccurrences(objectArray,o);
-            Integer numOccurResult = getNumberOfOccurrences(objectArray,leastCommmomResult);
-            if(numOccurO < numOccurResult){
+        for (Object o : objectArray) {
+            Integer numOccurO = getNumberOfOccurrences(objectArray, o);
+            Integer numOccurResult = getNumberOfOccurrences(objectArray, leastCommmomResult);
+            if (numOccurO < numOccurResult) {
                 leastCommmomResult = o;
             }
         }
@@ -88,13 +106,25 @@ public class ArrayUtils {
      */
     public static Integer[] mergeArrays(Integer[] objectArray, Integer[] objectArrayToAdd) {
         ArrayList<Integer> firstList = new ArrayList<>();
-        for (Integer i: objectArray) {
+        for (Integer i : objectArray) {
             firstList.add(i);
         }
-        for (Integer i: objectArrayToAdd) {
+        for (Integer i : objectArrayToAdd) {
             firstList.add(i);
         }
 
         return firstList.toArray(new Integer[firstList.size()]);
+    }
+
+    public static Object[] mergeArraysObject(Object[] objectArray, Object[] objectArrayToAdd) {
+        ArrayList<Object> firstList = new ArrayList<>();
+        for (Object i : objectArray) {
+            firstList.add(i);
+        }
+        for (Object i : objectArrayToAdd) {
+            firstList.add(i);
+        }
+
+        return firstList.toArray(new Object[firstList.size()]);
     }
 }

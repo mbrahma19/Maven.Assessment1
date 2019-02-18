@@ -16,8 +16,7 @@ public class Dog extends Pet {
      * @param age age of this dog
      */
     public Dog(Integer age) {
-        this.age = age;
-        this.name = "Dog name";
+        this("Dog name", age);
     }
 
     /**
@@ -34,8 +33,7 @@ public class Dog extends Pet {
      * age is 0
      */
     public Dog() {
-        this.name = "Dog name";
-        this.age = 0;
+        this("Dog name",0);
     }
 
     /**
