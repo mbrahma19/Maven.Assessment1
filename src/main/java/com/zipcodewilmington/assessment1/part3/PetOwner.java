@@ -1,5 +1,6 @@
 package com.zipcodewilmington.assessment1.part3;
 
+import com.zipcodewilmington.assessment1.part1.IntegerArrayUtils;
 import com.zipcodewilmington.assessment1.part2.ArrayUtils;
 
 import java.util.ArrayList;
@@ -63,7 +64,14 @@ public class PetOwner {
      * @return the age of the Pet object whose age field is the lowest amongst all Pets in this class
      */
     public Integer getYoungetPetAge() {
-        return null;
+        Integer youngest = Integer.MAX_VALUE;
+
+        for(Pet p : petList){
+            if(p.getAge() < youngest){
+                youngest = p.getAge();
+            }
+        }
+        return youngest;
     }
 
 
@@ -73,7 +81,14 @@ public class PetOwner {
      * @return the age of the Pet object whose age field is the highest amongst all Pets in this class
      */
     public Integer getOldestPetAge() {
-        return null;
+        Integer oldest = Integer.MIN_VALUE;
+
+        for(Pet p : petList){
+            if(p.getAge() >  oldest){
+                oldest = p.getAge();
+            }
+        }
+        return oldest;
     }
 
 
@@ -81,7 +96,11 @@ public class PetOwner {
      * @return the sum of ages of Pet objects stored in this class divided by the number of Pet object
      */
     public Float getAveragePetAge() {
-        return null;
+        float ageTotal = 0;
+        for(Pet p : petList){
+            ageTotal = ageTotal + p.getAge();
+        }
+        return ageTotal/getNumberOfPets();
     }
 
     /**
